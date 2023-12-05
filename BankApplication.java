@@ -3,6 +3,8 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class BankApplication {
+//    Main class that runs initiaites 10 bank accounts for experiment purpose and asks the user to promopt \
+//    the option to do the functions that provided by the bank
     public static void main(String[] args) {
 
         HashMap<Integer,Account> allAcc=new HashMap<>();
@@ -19,6 +21,7 @@ public class BankApplication {
         System.out.println("______________Welcome to XYZ BAnk_______________");
         System.out.println("Are you a new customer for our bank press y/n");
 
+//        If the user is a new customer this option provides them a account creation option
         char ch=sc.next().charAt(0);
         if(ch=='y'){
             createAcc(randomNo,allAcc);
@@ -26,6 +29,8 @@ public class BankApplication {
 
         Account account = getAccount(allAcc);
         boolean flag=true;
+//        Loops until the user press exit basic bank operation like deposit, withdraw, bank statement printing
+//        Switch between different bank accounts and exit.
         while (flag) {
             System.out.print("Enter your option\n '1' - Check Balance \n " +
                     "'2' - Withdraw \n '3' - Deposit \n'4' - Display account Details\n'5' - switch account \n'6' - Exit\n");
@@ -42,7 +47,7 @@ public class BankApplication {
                     int dAmount = sc.nextInt();
                     account.deposit(dAmount);
                 }
-                case 4 ->account.getAccDetails();
+                case 4 ->account.printAccDetails();
                 case 5 -> {
                     System.out.println("Enter the another bank account:");
                     account=getAccount(allAcc);
@@ -56,6 +61,7 @@ public class BankApplication {
         }
 
     }
+//Create a account object for a new bank account
     private static void createAcc(int randomNo, HashMap<Integer,Account> allAcc){
         Scanner sc = new Scanner(System.in);
         System.out.println("To Create an Account with the Us");
@@ -70,6 +76,7 @@ public class BankApplication {
         allAcc.put(randomNo,newAccount);
     }
 
+//    Verifying the bank account number exist or not and prompts the user to enter the correct account number
     private static Account getAccount(HashMap<Integer,Account> allAcc) {
         System.out.println("Enter Your Account Number:");
         Scanner sc = new Scanner(System.in);

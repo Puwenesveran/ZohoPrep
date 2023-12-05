@@ -16,15 +16,15 @@ public class Account {
         this.transaction=new ArrayList<>();
         transaction.add("Type       |Amount     |   Balance");
     }
-
-    public void getAccDetails(){
+    //This one is for printing the account details
+    public void printAccDetails(){
         System.out.println("Account Number      :   "+accNo);
         System.out.println("Account Holder name :   "+name);
         System.out.println("Contact Number      :   "+phoneNo);
         System.out.println("Transaction made    :   ");
-        displayTxn(transaction);
+        displayTransaction(transaction);
     }
-    private void displayTxn(ArrayList<String> transaction){
+    private void displayTransaction(ArrayList<String> transaction){
         for (String str:transaction) {
             System.out.println(str);
         }
