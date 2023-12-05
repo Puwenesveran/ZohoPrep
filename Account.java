@@ -16,7 +16,8 @@ public class Account {
         this.transaction=new ArrayList<>();
         transaction.add("Type       |Amount     |   Balance");
     }
-
+    //This one is for printing the account details 
+    //Naming should be accurate like printAccDetails
     public void getAccDetails(){
         System.out.println("Account Number      :   "+accNo);
         System.out.println("Account Holder name :   "+name);
@@ -24,6 +25,7 @@ public class Account {
         System.out.println("Transaction made    :   ");
         displayTxn(transaction);
     }
+    //Name it has displaytransaction itself
     private void displayTxn(ArrayList<String> transaction){
         for (String str:transaction) {
             System.out.println(str);
